@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AddTodo from '../components/AddTodo'
 import Todos from '../components/Todos'
-import UpdateTodo from '../components/UpdateTodo'
+import UpdateTodo from '../components/UpdateTodo';
+import '../styles/todoApp.scss'
 
 // import { TodoData } from '../data/TodoData';
 
@@ -68,7 +69,7 @@ const TodoApp = () => {
         })
         setTodos(filterDone)
         console.log("task completed");
-        
+
         console.log(filterDone);
     }
 
@@ -113,8 +114,8 @@ const TodoApp = () => {
     }
 
     // delete completed tasks
-    const handleFilter=()=>{
-        const removeDone = todos.filter((task)=>{
+    const handleFilter = () => {
+        const removeDone = todos.filter((task) => {
             return !task.isDone;
         })
         setTodos(removeDone)
@@ -123,36 +124,40 @@ const TodoApp = () => {
     }
 
     return (
-        <div className='app-container'>
-            <h1>Todos...</h1>
+        <div className='appContainer'>
 
-            {updateTodo && updateTodo ? (
-            <UpdateTodo
-                changeTask={changeTask}
-                updateTask={updateTask}
-                updateTodo={updateTodo}
-                cancelUpdate={cancelUpdate}
-            />
-            ):(
-            <AddTodo
-                newTodo={newTodo}
-                addTodo={addTodo}
-                handleInputChange={handleInputChange}
-                handleSubmit={handleSubmit}
-            />
-            ) }
+            <div className="todoWrapper">
+                <h2>Task List</h2>
+                {updateTodo && updateTodo ? (
+                    <UpdateTodo
+                        changeTask={changeTask}
+                        updateTask={updateTask}
+                        updateTodo={updateTodo}
+                        cancelUpdate={cancelUpdate}
+                    />
+                ) : (
+                    <AddTodo
+                        newTodo={newTodo}
+                        addTodo={addTodo}
+                        handleInputChange={handleInputChange}
+                        handleSubmit={handleSubmit}
+                    />
+                )}
 
-            {todos && todos.length ? '' : (<h2>No task found...</h2>)}
+                {todos && todos.length ? '' : (<h2>No task found...</h2>)}
 
-            <Todos
-                todos={todos}
-                deleteTask={deleteTask}
-                setUpdateTodo={setUpdateTodo}
-                markCompleted={markCompleted}
-            />
+                <Todos
+                    todos={todos}
+                    deleteTask={deleteTask}
+                    setUpdateTodo={setUpdateTodo}
+                    markCompleted={markCompleted}
+                />
 
-            <button onClick={() => handleDeleteAll(todos)}>Clear List<i className='fa-solid fa-trash-can-list'></i></button>
-            <button onClick={() => handleFilter(todos)}>Clear completed<i className='fa-solid fa-trash-can-check'></i></button>
+                <button onClick={() => handleDeleteAll(todos)}>Clear List<i className='fa-solid fa-trash-can-list'></i></button>
+                <button onClick={() => handleFilter(todos)}>Clear completed<i className='fa-solid fa-trash-can-check'></i></button>
+
+            </div>
+
 
         </div>
     )

@@ -1,0 +1,15 @@
+form, .updateWrap{
+    display: flex;
+    .inputWrap{
+        background: pink;
+        width: 100%;
+        input[type='text']{
+            width: 100%;
+        }
+    }
+}
+
+.btnWrap{
+    display: flex;
+}
+

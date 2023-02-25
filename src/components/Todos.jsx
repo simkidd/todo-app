@@ -12,7 +12,7 @@ const Todos = ({ todos, deleteTask, setUpdateTodo, markCompleted }) => {
                     .sort((a, b) => a.id > b.id ? 1 : -1)
                     .map((task, index) => {
                         return (
-                            <div key={task.id}>
+                            <div key={index}>
                                 <div className="todos">
                                     <div className="todo-list">
                                         <div className={task.isDone ? 'done' : ''}>

@@ -1,12 +1,12 @@
 import React from 'react';
-
+import '../styles/inputStyle.scss';
 
 const AddTodo = ({newTodo, addTodo, handleInputChange, handleSubmit}) => {
 
     return (
         <>
             <form onSubmit={handleSubmit} >
-                <div className="input-wrap">
+                <div className="inputWrap">
                     <input type="text" value={newTodo} placeholder="Add a new task" onChange={handleInputChange} />
                 </div>
                 <div className="btn-wrap">
