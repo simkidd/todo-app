@@ -1,15 +1,18 @@
+@import url(../node_modules/@fortawesome/fontawesome-free/css/all.css);
+
 .App {
+  background: #333;
+  color: #fff;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #444;
-  color: #fff;
 }
 
 h1{
-  position: absolute;
-  top: 0;
+  /* position: absolute;
+  top: 0; */
 }
 
